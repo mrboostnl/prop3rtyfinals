@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Eigenarenportaal demo | Prop3rty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Demo van het Prop3rty eigenarenportaal met voorbeelddata.">
+<link rel="canonical" href="https://prop3rty.nl/portaal">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Prop3rty">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Eigenarenportaal demo | Prop3rty">
+<meta property="og:description" content="Demo van het Prop3rty eigenarenportaal met voorbeelddata.">
+<meta property="og:url" content="https://prop3rty.nl/portaal">
+<meta property="og:image" content="https://prop3rty.nl/assets/img/nieuw/grachtenpanden.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<!-- /seo -->
+<script src="assets/dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  a, button, [role="button"], input[type="submit"], .whatsapp-modal__fab, #sob-wrap, #sob-wrap * { box-shadow: none !important; }
+  #sob-wrap svg { filter: none !important; }
+  @media (max-width: 767px) {
+    section:not(#top) { padding-top: 56px !important; padding-bottom: 56px !important; }
+    section[style*="100svh"]:not(#top) { min-height: 0 !important; }
+    [style*="padding: 120px 0 110px"] { padding-top: 0 !important; padding-bottom: 0 !important; }
+  }
+  @font-face { font-family: 'Satoshi'; src: url(assets/fonts/satoshi-110d7f0_afg.otf) format('opentype'); font-weight: 300; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url(assets/fonts/satoshi-k7cm0d_fsw.otf) format('opentype'); font-weight: 500; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url(assets/fonts/satoshi-10alh2z_f3k.otf) format('opentype'); font-weight: 700; font-display: swap; }
+  @font-face { font-family: 'Satoshi'; src: url(assets/fonts/satoshi-11tgmep_ca4.otf) format('opentype'); font-weight: 900; font-display: swap; }
+  body { margin: 0; font-family: 'Satoshi', system-ui, sans-serif; font-weight: 400; background: #F3F6F1; color: #63736F; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #0E2D30; text-decoration: none; }
+  a:hover { color: #16383B; }
+  h1, h2, h3, h4, p { margin: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  html, body { overflow-x: clip; }
+  ::selection { background: #CEFF8A; color: #14141A; }
+  input { font-family: 'Satoshi', sans-serif; }
+
+  .whatsapp-modal { z-index: 100; pointer-events: none; flex-flow: column; justify-content: center; align-items: center; display: flex; position: fixed; inset: 0; }
+  .whatsapp-modal__card { transition: all 0.6s cubic-bezier(0.625, 0.05, 0, 1); grid-column-gap: 1.25em; grid-row-gap: 1.25em; pointer-events: auto; background-color: #F6F9F4; border-radius: 1.5em; flex-flow: column; align-items: center; width: 20em; padding: 4.5em 2em 3.26em; display: flex; position: relative; transform: translateY(25%) rotate(0.001deg); opacity: 0; visibility: hidden; box-shadow: 0 34px 70px rgba(14,45,48,0.28); }
+  [data-whatsapp-modal-status="active"] .whatsapp-modal__card { transform: translateY(0%) rotate(0.001deg); opacity: 1; visibility: visible; }
+  .whatsapp-modal__qr-canvas { background-color: rgba(14,45,48,0.1); width: 8.75em; height: 8.75em; }
+  [data-whatsapp-modal-qr-canvas]:has(svg) { background-color: transparent; }
+  [data-whatsapp-modal-qr-canvas] svg rect { fill: transparent; }
+  [data-whatsapp-modal-qr-canvas] svg path { fill: #0E2D30; }
+  .whatsapp-modal__text { grid-column-gap: .75em; grid-row-gap: .75em; flex-flow: column; align-items: center; padding-top: 1em; display: flex; }
+  .whatsapp-modal__h2 { text-align: center; margin: 0; font-size: 1.6em; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; color: #0E2D30; }
+  .whatsapp-modal__p { color: #63736F; text-align: center; font-size: 0.95em; line-height: 1.55; margin: 0; }
+  .whatsapp-modal__btn { grid-column-gap: .5em; grid-row-gap: .5em; color: #fff; cursor: pointer; background-color: #0E2D30; border-radius: 30em; padding: 1em 1.5em; text-decoration: none; display: flex; align-items: center; position: relative; overflow: hidden; }
+  .whatsapp-modal__btn-span { color: #F6F9F4; font-size: 0.95em; font-weight: 700; line-height: 1; }
+  .whatsapp-modal__overlay-link, .whatsapp-modal__overlay-toggle { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+  .whatsapp-modal__close { cursor: pointer; justify-content: center; align-items: center; width: 2em; height: 2em; display: flex; position: absolute; top: 1.5em; right: 1.5em; }
+  .whatsapp-modal__close-bar { background-color: #0E2D30; width: 1.5em; height: .09375em; position: absolute; transform: rotate(-45deg); }
+  .whatsapp-modal__close-bar.is--duplicate { transform: rotate(45deg); }
+  .whatsapp-modal__dark { transition: all 0.6s cubic-bezier(0.625, 0.05, 0, 1); pointer-events: auto; background-color: rgba(14,45,48,0.34); width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; }
+  [data-whatsapp-modal-status="active"] .whatsapp-modal__dark { opacity: 1; visibility: visible; }
+  .whatsapp-modal__fab { z-index: 90; position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 999px; background-color: #0E2D30; color: #CEFF8A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 16px 34px rgba(14,45,48,0.3); transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
+  .whatsapp-modal__fab:hover { transform: scale(1.06); }
+  .whatsapp-modal__icon-svg { width: 30px; display: block; }
+  [data-whatsapp-modal-trigger] [data-whatsapp-modal-link] { display: none; }
+  @media (hover: none) and (pointer: coarse) {
+    [data-whatsapp-modal] { display: none; }
+    [data-whatsapp-modal-trigger] [data-whatsapp-modal-toggle] { display: none; }
+    [data-whatsapp-modal-trigger] [data-whatsapp-modal-link] { display: block; }
+  }
+
+  [data-btn-hover] { overflow: hidden; isolation: isolate; }
+  [data-btn-hover][data-btn-static] { position: relative; }
+  [data-btn-hover] .btn__circle-wrap { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; z-index: 0; }
+  [data-btn-hover] .btn__circle { pointer-events: none; border-radius: 50%; width: 115%; display: block; position: absolute; top: 50%; left: 50%; transition: transform 0.7s cubic-bezier(0.625, 0.05, 0, 1), background-color 0.4s cubic-bezier(0.625, 0.05, 0, 1); transform: translate(-50%, -50%) scale(0) rotate(0.001deg); }
+  [data-btn-hover] .before__100 { padding-top: 100%; display: block; }
+  [data-btn-hover]:hover .btn__circle { transform: translate(-50%, -50%) scale(1) rotate(0.001deg); }
+  [data-btn-hover] .btn__text { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: inherit; transition: color 0.7s cubic-bezier(0.625, 0.05, 0, 1); color: inherit; }
+  [data-btn-hover]:hover .btn__text { color: var(--btn-hover-text, inherit); }
+
+[data-tr-mask] { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+  [data-tr-inner] { display: block; transform: translateY(108%); transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+  [data-tr-on] [data-tr-inner] { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-tr-inner] { transform: none !important; transition: none !important; }
+  }
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script src="https://cdn.jsdelivr.net/npm/kjua@0.10.0/dist/kjua.min.js"></script>
+<script>
+function init_whats_app_modal() {
+  var modal = document.querySelector('[data-whatsapp-modal]');
+  if (!modal || modal.hasAttribute('data-wa-done')) return;
+  var url = (modal.getAttribute('data-whatsapp-modal') || '').trim();
+  if (!url || !window.kjua) return;
+  modal.setAttribute('data-wa-done', '');
+  var svg = kjua({ text: url, render: 'svg', crisp: true, minVersion: 1, ecLevel: 'M', size: 540, fill: '#000000', back: '#FFFFFF', rounded: 0 });
+  svg.removeAttribute('width');
+  svg.removeAttribute('height');
+  svg.removeAttribute('style');
+  modal.querySelectorAll('[data-whatsapp-modal-qr-canvas]').forEach(function (placeholder, i) {
+    placeholder.appendChild(i === 0 ? svg : svg.cloneNode(true));
+  });
+  document.querySelectorAll('[data-whatsapp-modal-link]').forEach(function (link_el) {
+    link_el.setAttribute('href', url);
+    link_el.setAttribute('target', '_blank');
+  });
+  document.querySelectorAll('[data-whatsapp-modal-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var is_active = modal.getAttribute('data-whatsapp-modal-status') === 'active';
+      modal.setAttribute('data-whatsapp-modal-status', is_active ? 'not-active' : 'active');
+    });
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') modal.setAttribute('data-whatsapp-modal-status', 'not-active');
+  });
+}
+(function () {
+  (function(){var c=0,i=setInterval(function(){init_whats_app_modal();if(++c>25)clearInterval(i);},400);})();
+  if (window.MutationObserver) new MutationObserver((function(){var q=0;return function(){if(q)return;q=setTimeout(function(){q=0;init_whats_app_modal();},300);};})()).observe(document.documentElement, { childList: true, subtree: true });
+  init_whats_app_modal();
+})();
+</script>
+<script>
+(function () {
+  function pick_theme(el) {
+    var cs = getComputedStyle(el);
+    var bg = cs.backgroundColor.replace(/\s/g, '');
+    var m = bg.match(/rgba?\((\d+),(\d+),(\d+)/);
+    var lum = 255;
+    if (m) lum = 0.2126 * +m[1] + 0.7152 * +m[2] + 0.0722 * +m[3];
+    var is_lime = m && +m[1] > 180 && +m[2] > 230 && +m[3] < 180;
+    if (is_lime) return { circle: '#0E2D30', text: '#F6F9F4' };
+    if (lum < 90) return { circle: '#CEFF8A', text: '#14141A' };
+    return { circle: '#CEFF8A', text: '#14141A' };
+  }
+  function is_button(el) {
+    if (el.closest('[data-dots-container-init]')) return false;
+    if (el.children.length === 0 && el.textContent.trim().length === 0) return false;
+    var cs = getComputedStyle(el);
+    if (cs.display.indexOf('flex') === -1 && cs.display !== 'inline-block' && cs.display !== 'block') return false;
+    var r = parseFloat(cs.borderTopLeftRadius) || 0;
+    var h = el.getBoundingClientRect().height;
+    if (h < 30 || h > 90) return false;
+    var bg = cs.backgroundColor;
+    var has_bg = bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent';
+    var has_border = (parseFloat(cs.borderTopWidth) || 0) > 0;
+    if (!has_bg && !has_border) return false;
+    var px = (parseFloat(cs.paddingLeft) || 0) + (parseFloat(cs.paddingRight) || 0);
+    if (px < 20) return false;
+    return r >= 12 || r > h * 0.2;
+  }
+  function enhance(el) {
+    if (el.hasAttribute('data-btn-hover')) return;
+    if (!is_button(el)) return;
+    var pos = getComputedStyle(el).position;
+    el.setAttribute('data-btn-hover', '');
+    if (pos === 'static') el.setAttribute('data-btn-static', '');
+    var theme = pick_theme(el);
+    el.style.setProperty('--btn-hover-text', theme.text);
+    var cs = getComputedStyle(el);
+    var wrapper = document.createElement('span');
+    wrapper.className = 'btn__text';
+    wrapper.style.gap = cs.columnGap && cs.columnGap !== 'normal' ? cs.columnGap : '';
+    while (el.firstChild) wrapper.appendChild(el.firstChild);
+    var circle_wrap = document.createElement('span');
+    circle_wrap.className = 'btn__circle-wrap';
+    var circle = document.createElement('span');
+    circle.className = 'btn__circle';
+    circle.style.backgroundColor = theme.circle;
+    var before = document.createElement('span');
+    before.className = 'before__100';
+    circle.appendChild(before);
+    circle_wrap.appendChild(circle);
+    el.appendChild(circle_wrap);
+    el.appendChild(wrapper);
+    function handle(event) {
+      var rect = el.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var off_x = ((event.clientX - rect.left) / w) * 100;
+      var off_y = ((event.clientY - rect.top) / h) * 100;
+      var off_center = Math.abs(((event.clientX - (rect.left + w / 2)) / (w / 2)) * 50);
+      circle.style.left = off_x.toFixed(1) + '%';
+      circle.style.top = off_y.toFixed(1) + '%';
+      circle.style.width = (115 + off_center * 2).toFixed(1) + '%';
+    }
+    el.addEventListener('mouseenter', handle);
+    el.addEventListener('mouseleave', handle);
+  }
+  function init_directional_button_hover() {
+    document.querySelectorAll('a, button, [role="button"]').forEach(function (el) {
+      if (el.closest('#mobile-menu') || el.closest('.whatsapp-modal') || el.closest('[data-whatsapp-modal-trigger]') || el.classList.contains('whatsapp-modal__fab')) return;
+      try { enhance(el); } catch (e) {}
+    });
+  }
+  (function(){var c=0,i=setInterval(function(){init_directional_button_hover();if(++c>20)clearInterval(i);},600);})();
+  if (window.MutationObserver) new MutationObserver((function(){var q=0;return function(){if(q)return;q=setTimeout(function(){q=0;init_directional_button_hover();},300);};})()).observe(document.documentElement, { childList: true, subtree: true });
+  setTimeout(init_directional_button_hover, 300);
+})();
+</script>
+<script>
+(function () {
+  function place_fab() {
+    var fab = document.querySelector('.whatsapp-modal__fab');
+    if (!fab) return;
+    var base = 24;
+    var fr = fab.getBoundingClientRect();
+    var top_needed = base;
+    document.querySelectorAll('body *').forEach(function (el) {
+      if (el === fab || el.contains(fab) || fab.contains(el)) return;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed' || cs.visibility === 'hidden' || cs.display === 'none') return;
+      var r = el.getBoundingClientRect();
+      if (r.width < 80 || r.height < 80 || r.width > window.innerWidth * 0.9) return;
+      var overlaps = r.right > fr.left - 8 && r.left < fr.right + 8 && r.bottom > fr.top - 8 && r.top < fr.bottom + 8;
+      if (overlaps) {
+        var candidate = window.innerHeight - r.top + 16;
+        if (candidate > top_needed) top_needed = candidate;
+      }
+    });
+    fab.style.bottom = top_needed + 'px';
+  }
+  (function(){var c=0,i=setInterval(function(){place_fab();if(++c>10)clearInterval(i);},800);})();
+  setTimeout(place_fab, 600);
+  window.addEventListener('resize', place_fab);
+})();
+</script>
+<script>
+(function () {
+  function force_mute_videos() {
+    document.querySelectorAll('video').forEach(function (v) {
+      v.muted = true; v.defaultMuted = true; v.volume = 0;
+      if (!v.hasAttribute('muted')) v.setAttribute('muted', '');
+    });
+  }
+  (function(){var c=0,i=setInterval(function(){force_mute_videos();if(++c>20)clearInterval(i);},500);})();
+  document.addEventListener('play', force_mute_videos, true);
+  document.addEventListener('volumechange', function (e) { if (e.target && e.target.tagName === 'VIDEO' && !e.target.muted) { e.target.muted = true; e.target.volume = 0; } }, true);
+  force_mute_videos();
+})();
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = null;
+  function ensure_io() {
+    if (io || !window.IntersectionObserver) return io;
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.setAttribute('data-tr-on', '');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    return io;
+  }
+  function prep(el) {
+    if (el.hasAttribute('data-tr-done') || el.tagName === 'H1') return;
+    if (el.closest('#mobile-menu') || el.closest('.whatsapp-modal') || el.closest('[data-dots-container-init]')) return;
+    if (!el.getClientRects().length || !el.textContent.trim()) return;
+    el.setAttribute('data-tr-done', '');
+    if (reduce) { el.setAttribute('data-tr-on', ''); return; }
+    var mask = document.createElement('span');
+    mask.setAttribute('data-tr-mask', '');
+    var inner = document.createElement('span');
+    inner.setAttribute('data-tr-inner', '');
+    while (el.firstChild) inner.appendChild(el.firstChild);
+    mask.appendChild(inner);
+    el.appendChild(mask);
+    var obs = ensure_io();
+    if (obs) obs.observe(el); else el.setAttribute('data-tr-on', '');
+  }
+  function sweep() { document.querySelectorAll('h1, h2').forEach(prep); }
+  (function(){var c=0,i=setInterval(function(){sweep();if(++c>20)clearInterval(i);},600);})();
+  if (window.MutationObserver) new MutationObserver((function(){var q=0;return function(){if(q)return;q=setTimeout(function(){q=0;sweep();},300);};})()).observe(document.documentElement, { childList: true, subtree: true });
+  setTimeout(sweep, 250);
+})();
+</script>
+<script>
+// Prop3rty page transition — Curved Wipe (adapted from Osmo Supply resource)
+(function () {
+  var EASE = 'cubic-bezier(0.625, 0.05, 0, 1)';
+  var NAMES = ['index.html', 'landing-alt.html', 'diensten.html', 'platform.html', 'tarieven.html', 'over-ons.html', 'contact.html', 'portaal.html', '404.html'];
+  var KEY = 'p3-transition';
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var busy = false;
+
+  var css = [
+    '#p3-transition { z-index: 2147483000; pointer-events: none; position: fixed; inset: 0; overflow: clip; }',
+    '#p3-transition .tr__panel { color: #0E2D30; background-color: currentColor; justify-content: center; align-items: center; width: 100%; height: 100%; display: flex; position: absolute; top: 100%; left: 0; will-change: transform; }',
+    '#p3-transition .tr__top { transform-origin: bottom; flex-flow: column; align-items: center; width: 100%; height: 15vw; display: flex; position: absolute; bottom: calc(100% - 1px); left: 0; overflow: hidden; transform: scaleY(0); }',
+    '#p3-transition .tr__bottom { transform-origin: top; flex-flow: column; justify-content: flex-end; align-items: center; width: 100%; height: 20vw; display: flex; position: absolute; top: calc(100% - 1px); left: 0; overflow: hidden; transform: scaleY(0); }',
+    '#p3-transition .tr__circle { aspect-ratio: auto; background-color: #0E2D30; border-radius: 50%; width: 125%; height: 500%; position: absolute; }',
+    '#p3-transition .tr__logo { color: #CEFF8A; width: min(13em, 42vw); position: absolute; top: 50%; left: 50%; overflow: hidden; transform: translate(-50%, -50%); }',
+    '#p3-transition .tr__logo-inner { display: flex; transform: translateY(110%); will-change: transform; }',
+    '#p3-transition .tr__logo svg { width: 100%; height: auto; display: block; }'
+  ].join('\n');
+
+  function build() {
+    var w = document.getElementById('p3-transition');
+    if (w) return w;
+    var st = document.createElement('style');
+    st.textContent = css;
+    document.head.appendChild(st);
+    w = document.createElement('div');
+    w.id = 'p3-transition';
+    w.setAttribute('data-transition-wrap', '');
+    w.innerHTML =
+      '<div data-transition-panel class="tr__panel">' +
+      '<div data-transition-panel-top class="tr__top"><div class="tr__circle"></div></div>' +
+      '<div data-transition-panel-bottom class="tr__bottom"><div class="tr__circle"></div></div>' +
+      '<div data-transition-logo class="tr__logo"><div class="tr__logo-inner"></div></div>' +
+      '</div>';
+    document.documentElement.appendChild(w);
+    fetch('assets/logo.svg').then(function (r) { return r.text(); }).then(function (svg) {
+      svg = svg.replace('fill="#0E2D30"', 'fill="currentColor"');
+      w.querySelector('.tr__logo-inner').innerHTML = svg;
+    }).catch(function () {
+      w.querySelector('.tr__logo-inner').innerHTML = '<span style="font-weight:900;font-size:40px;letter-spacing:-0.02em;">Prop3rty</span>';
+    });
+    return w;
+  }
+  function parts(w) {
+    return {
+      panel: w.querySelector('[data-transition-panel]'),
+      top: w.querySelector('[data-transition-panel-top]'),
+      bottom: w.querySelector('[data-transition-panel-bottom]'),
+      logo: w.querySelector('.tr__logo-inner')
+    };
+  }
+  function pageRoot() {
+    var b = document.body;
+    if (!b) return null;
+    for (var i = 0; i < b.children.length; i++) {
+      var c = b.children[i];
+      if (c.id === 'p3-transition' || /^(SCRIPT|STYLE|LINK)$/.test(c.tagName)) continue;
+      if (c.offsetHeight > 200) return c;
+    }
+    return null;
+  }
+
+  // ---- enter (page load after a transition) ----
+  var pending = null;
+  try { pending = sessionStorage.getItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+  pending = null;
+
+  function cover() {
+    var o = parts(build());
+    o.panel.style.transform = 'translateY(-100%)';
+    o.top.style.transform = 'scaleY(1)';
+    o.bottom.style.transform = 'scaleY(1)';
+    o.logo.style.transform = 'translateY(0)';
+  }
+  function reveal() {
+    var o = parts(build());
+    var root = pageRoot();
+    o.panel.animate([{ transform: 'translateY(-100%)' }, { transform: 'translateY(-200%)' }], { duration: 1000, easing: EASE, fill: 'forwards' });
+    o.bottom.animate([{ transform: 'scaleY(1)' }, { transform: 'scaleY(0)' }], { duration: 1000, easing: EASE, fill: 'forwards' });
+    o.logo.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-130%)' }], { duration: 1200, easing: 'cubic-bezier(0.85, 0, 0.15, 1)', fill: 'forwards' });
+    if (root) root.animate([{ transform: 'translateY(25vh)' }, { transform: 'translateY(0)' }], { duration: 1000, easing: EASE });
+    setTimeout(function () {
+      o.panel.style.transform = 'translateY(0)';
+      o.top.style.transform = 'scaleY(0)';
+      o.bottom.style.transform = 'scaleY(0)';
+      o.logo.style.transform = 'translateY(110%)';
+    }, 1250);
+  }
+  if (pending && !reduced) {
+    // cover synchronously, BEFORE first paint (rAF fires after a paint = one raw flash frame)
+    document.documentElement.style.background = '#0E2D30';
+    cover();
+    waitContent();
+  }
+  function waitContent() {
+    // reveal only once the page has settled: DOM stopped mutating + fonts loaded
+    var t0 = performance.now();
+    var last_change = t0;
+    var mo = window.MutationObserver ? new MutationObserver(function () { last_change = performance.now(); }) : null;
+    if (mo) mo.observe(document.documentElement, { childList: true, subtree: true });
+    var fonts_ready = !(document.fonts && document.fonts.ready);
+    if (!fonts_ready) document.fonts.ready.then(function () { fonts_ready = true; });
+    (function tick() {
+      var now = performance.now();
+      var settled = pageRoot() && fonts_ready && now - last_change > 240 && now - t0 > 500;
+      if (settled || now - t0 > 2800) {
+        if (mo) mo.disconnect();
+        reveal();
+        setTimeout(function () { document.documentElement.style.background = ''; }, 1300);
+      } else requestAnimationFrame(tick);
+    })();
+  }
+
+  // ---- leave (link click) ----
+  function leave(href) {
+    window.location.href = href; return;
+    var o = parts(build());
+    o.top.style.transform = 'scaleY(0)';
+    o.bottom.style.transform = 'scaleY(1)';
+    o.panel.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-100%)' }], { duration: 700, easing: EASE, fill: 'forwards' });
+    o.top.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: 700, easing: EASE, fill: 'forwards' });
+    o.logo.animate([{ transform: 'translateY(110%)' }, { transform: 'translateY(0)' }], { duration: 600, delay: 200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+    var root = pageRoot();
+    if (root) root.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-15vh)' }], { duration: 700, easing: EASE, fill: 'forwards' });
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    // navigate only once the panel fully covers the screen — earlier causes a flash
+    setTimeout(function () {
+      document.documentElement.style.background = '#0E2D30';
+      window.location.href = href;
+    }, 740);
+  }
+
+  // Prefetch internal pages on hover so the next page is already cached on click
+  var prefetched = {};
+  document.addEventListener('pointerover', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (!/\.dc\.html$/.test(href.split('#')[0]) || /^https?:\/\//.test(href) || prefetched[href]) return;
+    prefetched[href] = 1;
+    var l = document.createElement('link');
+    l.rel = 'prefetch'; l.href = href.split('#')[0]; l.as = 'document';
+    document.head.appendChild(l);
+  }, { passive: true, capture: true });
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || a.target === '_blank') return;
+    var href = a.getAttribute('href') || '';
+    if (!/\.dc\.html$/.test(href.split('#')[0]) || /^https?:\/\//.test(href)) return;
+    var file = decodeURIComponent(href.split('#')[0].split('/').pop());
+    var current = decodeURIComponent(location.pathname.split('/').pop() || '');
+    if (file === current || NAMES.indexOf(file) === -1) return;
+    if (reduced) return;
+    e.preventDefault();
+    leave(href);
+  }, true);
+})();
+
+</script>
+<script>
+// Scaling Hamburger Navigation (Osmo Supply) — mobile only
+(function () {
+  var css = [
+    '.navigation { z-index: 500; pointer-events: none; position: fixed; inset: 0; display: none; font-size: 16px; font-family: \'Satoshi\', system-ui, sans-serif; }',
+    '@media (max-width: 1040px) { .navigation { display: block; } #menu-btn { display: none !important; } }',
+    '.navigation__dark-bg { transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1); opacity: 0; pointer-events: auto; visibility: hidden; background-color: #000; position: absolute; inset: 0; }',
+    '[data-navigation-status="active"] .navigation__dark-bg { opacity: 0.33; visibility: visible; }',
+    '.hamburger-nav { border-radius: 1.5em; position: absolute; top: 1.25em; right: 1.25em; }',
+    '.hamburger-nav__bg { transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1); background-color: #0E2D30; border-radius: 1.75em; width: 3.5em; height: 3.5em; position: absolute; top: 0; right: 0; box-shadow: 0 14px 40px rgba(14,45,48,0.18); }',
+    '[data-navigation-status="active"] .hamburger-nav__bg { width: 100%; height: 100%; }',
+    '.hamburger-nav__group { transition: all 0.5s cubic-bezier(0.5, 0.5, 0, 1), transform 0.7s cubic-bezier(0.5, 0.5, 0, 1); grid-column-gap: 1em; grid-row-gap: 1em; pointer-events: auto; transform-origin: 100% 0; flex-flow: column; padding: 2.25em 2.5em 2em 2em; display: flex; position: relative; transform: scale(0.15) rotate(0.001deg); opacity: 0; visibility: hidden; }',
+    '[data-navigation-status="active"] .hamburger-nav__group { transform: scale(1) rotate(0.001deg); opacity: 1; visibility: visible; }',
+    '.hamburger-nav__menu-p { opacity: .5; letter-spacing: .12em; text-transform: uppercase; margin: 0; color: #F6F9F4; font-size: 0.8em; font-weight: 700; }',
+    '.hamburger-nav__ul { grid-column-gap: .375em; grid-row-gap: .375em; flex-flow: column; margin: 0; padding: 0; display: flex; position: relative; }',
+    '.hamburger-nav__li { margin: 0; padding: 0; list-style: none; }',
+    '.hamburger-nav__a { color: #F6F9F4; justify-content: space-between; align-items: center; text-decoration: none; display: flex; }',
+    '.hamburger-nav__a[aria-current] .hamburger-nav__p { opacity: 0.4; }',
+    '.hamburger-nav__p { white-space: nowrap; margin: 0; padding-right: 1.25em; font-size: 1.7em; font-weight: 700; letter-spacing: -0.02em; }',
+    '.hamburger-nav__dot { transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1); background-color: #CEFF8A; border-radius: 50%; flex-shrink: 0; width: .5em; height: .5em; transform: scale(0) rotate(0.001deg); opacity: 0.5; }',
+    '.hamburger-nav__a[aria-current] .hamburger-nav__dot { transform: scale(1) rotate(0.001deg); opacity: 1; }',
+    '.hamburger-nav:has(.hamburger-nav__a:hover) .hamburger-nav__dot { transform: scale(0) rotate(0.001deg); }',
+    '.hamburger-nav .hamburger-nav__a:hover .hamburger-nav__dot { transform: scale(1) rotate(0.001deg); opacity: 0.25; }',
+    '.hamburger-nav__toggle { transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1); pointer-events: auto; cursor: pointer; border-radius: 50%; justify-content: center; align-items: center; width: 3.5em; height: 3.5em; display: flex; position: absolute; top: 0; right: 0; transform: translate(0em, 0em) rotate(0.001deg); }',
+    '[data-navigation-status="active"] .hamburger-nav__toggle { transform: translate(-1em, 1em) rotate(0.001deg); }',
+    '.hamburger-nav__toggle-bar { transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1); background-color: #F6F9F4; width: 40%; height: .125em; position: absolute; transform: translateY(-0.15em) rotate(0.001deg); }',
+    '.hamburger-nav__toggle:hover .hamburger-nav__toggle-bar { transform: translateY(0.15em) rotate(0.001deg); }',
+    '[data-navigation-status="active"] .hamburger-nav__toggle .hamburger-nav__toggle-bar { transform: translateY(0em) rotate(45deg); }',
+    '.hamburger-nav__toggle .hamburger-nav__toggle-bar:nth-child(2) { transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1); transform: translateY(0.15em) rotate(0.001deg); }',
+    '.hamburger-nav__toggle:hover .hamburger-nav__toggle-bar:nth-child(2) { transform: translateY(-0.15em) rotate(0.001deg); }',
+    '[data-navigation-status="active"] .hamburger-nav__toggle .hamburger-nav__toggle-bar { }',
+    '@media (max-width: 1040px) { #topbar { display: none !important; } #header-pill #menu-btn { display: none !important; } .hamburger-nav { top: 24px; right: 38px; } .hamburger-nav__bg { width: 44px; height: 44px; } .hamburger-nav__toggle { width: 44px; height: 44px; } #header-pill { justify-content: center !important; height: 64px !important; padding: 0 14px !important; } #header-pill svg[role="img"], #header-pill a > img { height: 34px !important; } #header-call { display: flex !important; } }'
+  ].join('\n');
+  var LINKS = [
+    ['Home', '/'],
+    ['Diensten', '/diensten'],
+    ['Platform', '/platform'],
+    ['Tarieven', '/tarieven'],
+    ['Over ons', '/over-ons'],
+    ['Contact', '/contact'],
+    ['Mijn Prop3rty', '/portaal']
+  ];
+  function build() {
+    if (document.getElementById('scaling-nav')) return;
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+    var current = decodeURIComponent(location.pathname.split('/').pop() || '');
+    var lis = LINKS.map(function (l) {
+      var cur = l[1].replace(/^\//, '') === current ? ' aria-current="page"' : '';
+      return '<li class="hamburger-nav__li"><a href="' + l[1] + '"' + cur + ' class="hamburger-nav__a"><p class="hamburger-nav__p">' + l[0] + '</p><div class="hamburger-nav__dot"></div></a></li>';
+    }).join('');
+    var nav = document.createElement('nav');
+    nav.id = 'scaling-nav';
+    nav.setAttribute('data-navigation-status', 'not-active');
+    nav.className = 'navigation';
+    nav.innerHTML = '<div data-navigation-toggle="close" class="navigation__dark-bg"></div>' +
+      '<div class="hamburger-nav"><div class="hamburger-nav__bg"></div>' +
+      '<div class="hamburger-nav__group"><p class="hamburger-nav__menu-p">Menu</p><ul class="hamburger-nav__ul">' + lis + '</ul></div>' +
+      '<div data-navigation-toggle="toggle" class="hamburger-nav__toggle"><div class="hamburger-nav__toggle-bar"></div><div class="hamburger-nav__toggle-bar"></div></div></div>';
+    document.documentElement.appendChild(nav);
+    document.querySelectorAll('[data-navigation-toggle="toggle"]').forEach(function (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        var el = document.querySelector('[data-navigation-status]');
+        if (!el) return;
+        el.setAttribute('data-navigation-status', el.getAttribute('data-navigation-status') === 'not-active' ? 'active' : 'not-active');
+      });
+    });
+    document.querySelectorAll('[data-navigation-toggle="close"]').forEach(function (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        var el = document.querySelector('[data-navigation-status]');
+        if (el) el.setAttribute('data-navigation-status', 'not-active');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.keyCode === 27) {
+        var el = document.querySelector('[data-navigation-status]');
+        if (el && el.getAttribute('data-navigation-status') === 'active') el.setAttribute('data-navigation-status', 'not-active');
+      }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+</script>
+</helmet>
+<div style="display: grid; grid-template-columns: 264px 1fr; min-width: 1280px; min-height: 100vh; background: #F3F6F1;">
+
+  <aside style="background: #0E2D30; padding: 28px 20px; display: flex; flex-direction: column; gap: 36px; position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+    <div style="padding: 0 8px;">
+      <svg viewBox="85.77 234.68 439.63 143.62" role="img" aria-label="Prop3rty" style="height: 48px; width: auto; fill: #ffffff;"><path d="M486.96,340.92l3.95-13.65h-8.26l-7.18-27.67v.02h-9.7v17.95h10.41v9.7h-22.62v-27.65h-1.08v1.44h-6.11c-1.31-.03-2.61.28-3.77.9-1.06.58-1.93,1.45-2.51,2.51-.62,1.16-.93,2.46-.9,3.77v19.03h-12.21v-11.02c-.39,1.39-.98,2.7-1.76,3.91-1.52,2.37-3.73,4.25-6.61,5.62-2.88,1.38-6.27,2.07-10.17,2.07s-7.36-.72-10.13-2.16c-2.78-1.44-4.93-3.3-6.48-5.59-.37-.55-.72-1.12-1.03-1.69-.1.22-.2.43-.3.64-1.48,2.99-3.48,5.29-6,6.89-2.47,1.59-5.35,2.43-8.29,2.41-1.61.01-3.21-.28-4.71-.86-1.37-.52-2.65-1.28-3.77-2.23-1.02-.88-1.92-1.89-2.66-3.02h-.72v18.67h-12.21v-28.56c-.43,2.16-1.23,4.23-2.37,6.12-1.81,3.03-4.4,5.53-7.5,7.22-3.26,1.74-6.9,2.66-10.59,2.66s-7.33-.91-10.59-2.66c-3.1-1.69-5.69-4.19-7.5-7.22-1.56-2.6-2.48-5.54-2.68-8.56-.21-3.03.3-6.06,1.49-8.85h-4.76c-1.31-.03-2.61.28-3.77.9-1.06.58-1.93,1.45-2.51,2.51-.62,1.16-.93,2.46-.9,3.77v19.03h-12.21v-37.35h11.85v5.39h.72c.72-1.72,1.88-3.22,3.37-4.34,1.53-1.17,3.45-1.76,5.75-1.76h3.81v9.28c1.8-2.93,4.34-5.33,7.36-6.98,3.26-1.74,6.9-2.66,10.59-2.66s7.34.91,10.59,2.66c3.1,1.69,5.69,4.18,7.5,7.22,1.14,1.89,1.94,3.96,2.37,6.12v-14.92h12.21v5.03h.72c.74-1.13,1.63-2.14,2.66-3.02,1.12-.95,2.4-1.7,3.77-2.23,1.5-.58,3.1-.87,4.71-.86,2.94-.02,5.82.81,8.29,2.41,2.51,1.6,4.51,3.9,6,6.89,1.49,2.99,2.23,6.48,2.23,10.45,0,1.34-.09,2.68-.27,4.01h8.37c.45,1.44,1.36,2.7,2.58,3.59,1.29.99,2.97,1.49,5.05,1.49,1.29.03,2.57-.22,3.75-.73.97-.42,1.81-1.1,2.41-1.97.54-.8.83-1.74.83-2.7,0-.94-.29-1.86-.83-2.64-.61-.87-1.44-1.57-2.41-2-1.18-.53-2.46-.79-3.75-.76h-10.16v-7.62l10.16-6.35v-.64h-17.15v-10.17h33.36v10.17l-9.85,6.04-.7.26v.76l.13-.06c2.37-.03,4.7.56,6.77,1.72,2.9,1.64,5.04,4.34,5.99,7.53v-18.58h11.85v5.39h.72c.72-1.72,1.88-3.22,3.38-4.34,1.53-1.17,3.45-1.76,5.75-1.76h3.81v.72h1.08v-7.9h12.21v7.9h19.75l6.46,26.93h2.15l7.18-26.93h12.57l-14.36,50.99h-12.57ZM368.13,300.34c-1.21.76-2.17,1.86-2.76,3.16-.67,1.39-1,3.09-1.01,5.1,0,2.01.33,3.71,1.01,5.1.59,1.3,1.55,2.4,2.76,3.16,1.26.71,2.68,1.08,4.13,1.08s2.87-.37,4.13-1.08c1.21-.76,2.17-1.86,2.76-3.16.67-1.39,1.01-3.09,1.01-5.1,0-2.01-.34-3.71-1.01-5.1-.59-1.3-1.55-2.4-2.76-3.16-1.26-.71-2.68-1.08-4.13-1.08s-2.87.37-4.13,1.08ZM327.45,300.41c-1.27.79-2.29,1.93-2.95,3.27-.71,1.54-1.08,3.22-1.08,4.92s.37,3.38,1.08,4.92c.66,1.34,1.68,2.48,2.95,3.27,1.27.79,2.74,1.21,4.23,1.21s2.96-.42,4.23-1.21c1.27-.79,2.29-1.93,2.95-3.27.71-1.54,1.08-3.22,1.08-4.92s-.37-3.38-1.08-4.92c-.51-.99-1.22-1.86-2.08-2.57-.86-.71-1.86-1.23-2.93-1.53-1.07-.31-2.19-.39-3.29-.25-1.1.14-2.17.51-3.12,1.08ZM242.99,327.28v-50.27h24.42c4.07,0,7.68.81,10.84,2.44,3.16,1.63,5.61,3.84,7.36,6.64,1.71,2.77,2.62,5.97,2.62,9.23s-.91,6.46-2.62,9.23c-1.75,2.8-4.2,5.02-7.36,6.64s-6.77,2.44-10.84,2.44h-11.13v13.65h-13.29ZM256.28,301.42h10.77c2.44,0,4.31-.55,5.6-1.65,1.29-1.1,1.94-2.59,1.94-4.45s-.65-3.35-1.94-4.45c-1.29-1.1-3.16-1.65-5.6-1.65h-10.77v12.21Z"></path><path d="M204.2,265.42c2.57,1.46,4.63,3.59,5.74,6.38l10.49,32.28c.76,3.5-.26,7.06-2.29,9.94l-36.53,42.84c-4.69,5.06-9.96,3.9-15.82,2.29-.17-.05-.73-.16-.8-.26l-9.27-28.48c-1.54-5.86.85-11.82,6.67-14.08,4.54-1.76,9.69-2.78,14.17-4.6,6.26-2.54,7.05-11.09.91-14.29-3.46-1.8-6.52-.18-9.91.9-6.12,1.95-12.26,3.89-18.37,5.97-5.15,1.75-7.76,5.26-6.59,10.82l13.43,41.29-.04.34-39.96-9.71c-3.47-1.15-6.37-3.44-7.81-6.89l-10.13-31.16c-1.12-4.24-.15-8.54,2.54-11.95,11.6-13.72,23.48-27.19,35.46-40.59,1.53-1.55,3.4-2.74,5.46-3.46,2.06-.72,4.26-.96,6.43-.7,14.24,2.94,28.45,5.97,42.6,9.31,3.49.82,7.7,1.56,11.05,2.63.9.31,1.76.71,2.58,1.19M190.13,312.88c-1.85,3.67-5.34,7.2-9.22,8.74-4.11,1.62-8.72,2.61-12.88,4.18-1.13.56-1.83,1.65-1.57,2.93l5.83,17.95c.56,1.3,2.13,1.76,3.13.66,9.73-11.48,19.56-22.87,29.26-34.37,2.38-2.83,5.31-5.23,4.28-9.42l-8.04-24.72c-.46-1.04-1.13-1.98-1.98-2.74-.85-.76-1.85-1.33-2.94-1.68-3.4-.98-7.39-1.59-10.89-2.38-10.08-2.28-20.15-4.67-30.25-6.84-4.95-1.06-8.94-2.59-13.06,1.63l-31.37,36.09c-.95,1.47-1.38,3.23-1.21,4.97,2.69,8.82,5.52,17.68,8.59,26.37.73,1.18,1.82,2.1,3.1,2.63l17.23,4.28c.77,0,1.18-.68,1.07-1.39-2.22-7.71-5.38-15.38-7.51-23.09-1.25-4.52-.9-9.56,1.91-13.42,2.42-3.31,5.71-6.99,9.61-8.5l27.56-8.95c15.32-2.95,26.21,13.41,19.34,27.08"></path><path d="M521.41,297.93c-.71,0-1.41-.17-2.02-.52-.6-.34-1.09-.82-1.44-1.41-.35-.59-.53-1.27-.53-1.95,0-.69.18-1.36.53-1.95.35-.59.85-1.07,1.44-1.41.62-.35,1.31-.53,2.02-.52.71,0,1.41.17,2.02.52.6.34,1.09.82,1.44,1.41.35.59.53,1.27.53,1.95,0,.69-.18,1.36-.53,1.95-.35.59-.85,1.07-1.44,1.41-.62.35-1.31.53-2.02.52ZM521.41,296.89c.52,0,1.04-.12,1.5-.36.43-.23.78-.58,1.02-1.01.25-.45.38-.96.37-1.48,0-.52-.12-1.02-.37-1.48-.24-.43-.59-.78-1.02-1.01-.46-.25-.98-.37-1.5-.36-.52,0-1.04.12-1.5.36-.43.23-.78.58-1.02,1.01-.25.45-.38.96-.37,1.48,0,.52.12,1.02.37,1.48.24.43.59.78,1.02,1.01.46.25.98.37,1.5.36h0ZM519.89,295.75v-3.62h1.7c.43-.03.87.09,1.22.35.14.12.25.27.32.44.07.17.1.35.09.54,0,.25-.06.49-.2.7-.13.18-.3.32-.5.41l.81,1.18h-1.18l-.7-1h-.48v1h-1.07ZM521.59,293.86c.14,0,.27-.03.39-.1.04-.03.08-.08.1-.12.02-.05.04-.1.03-.16,0-.06,0-.11-.03-.16-.02-.05-.06-.09-.1-.13-.11-.08-.25-.11-.39-.1h-.63v.78h.63Z"></path></svg>
+    </div>
+
+    <nav style="flex: none; display: flex; flex-direction: column; gap: 4px;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6E8A88; padding: 0 12px 8px;">Portefeuille</p>
+      <a onClick="{{ goOverzicht }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navOverzichtWeight }}; background: {{ navOverzichtBg }}; color: {{ navOverzichtFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.75" y="2.75" width="6" height="6" rx="1.5"></rect><rect x="11.25" y="2.75" width="6" height="6" rx="1.5"></rect><rect x="2.75" y="11.25" width="6" height="6" rx="1.5"></rect><rect x="11.25" y="11.25" width="6" height="6" rx="1.5"></rect></svg>Overzicht</a>
+      <a onClick="{{ goPanden }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navPandenWeight }}; background: {{ navPandenBg }}; color: {{ navPandenFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V8.4L10 3.25l7 5.15v8.85"></path><path d="M8 17.25v-5h4v5"></path></svg>Mijn panden</a>
+      <a onClick="{{ goHuurders }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navHuurdersWeight }}; background: {{ navHuurdersBg }}; color: {{ navHuurdersFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7.5" r="2.75"></circle><path d="M2.75 16.5c0-2.5 2.1-4.25 4.75-4.25s4.75 1.75 4.75 4.25"></path><path d="M13.5 5.2a2.6 2.6 0 0 1 0 5"></path><path d="M14.75 12.5c1.6.45 2.5 1.9 2.5 4"></path></svg>Huurders</a>
+      <a onClick="{{ goOnderhoud }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navOnderhoudWeight }}; background: {{ navOnderhoudBg }}; color: {{ navOnderhoudFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.2 3.4a4 4 0 0 0 5 5.2l-8.9 8.9a2 2 0 0 1-2.8-2.8l8.9-8.9a4 4 0 0 1-2.2-2.4Z"></path></svg>Onderhoud<span style="margin-left: auto; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: #E0533F; color: #ffffff; font-size: 12px; font-weight: 700;">3</span></a>
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6E8A88; padding: 20px 12px 8px;">Inzicht</p>
+      <a onClick="{{ goDocumenten }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navDocumentenWeight }}; background: {{ navDocumentenBg }}; color: {{ navDocumentenFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.75h6l4 4v10.5H5z"></path><path d="M11 2.75V7h4"></path></svg>Documenten</a>
+      <a onClick="{{ goRapportages }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navRapportagesWeight }}; background: {{ navRapportagesBg }}; color: {{ navRapportagesFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5h14"></path><path d="M6 16.5V9"></path><path d="M10 16.5V4.5"></path><path d="M14 16.5v-5"></path></svg>Rapportages</a>
+      <a onClick="{{ goAssistent }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; font-size: 15px; cursor: pointer; font-weight: {{ navAssistentWeight }}; background: {{ navAssistentBg }}; color: {{ navAssistentFg }};"><svg viewBox="0 0 20 20" aria-hidden="true" style="flex: none; width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3l1.6 3.9L15.5 8.5l-3.9 1.6L10 14l-1.6-3.9L4.5 8.5l3.9-1.6z"></path><path d="M15 13.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"></path></svg>AI-assistent</a>
+    </nav>
+
+    <div style="position: relative; flex: none; overflow: hidden; margin-top: auto; background: #16383B; border-radius: 20px; padding: 18px;">
+      <svg viewBox="0 0 612 612" aria-hidden="true" style="position: absolute; right: -26px; bottom: -30px; width: 130px; height: 130px; fill: #ffffff; opacity: 0.07; pointer-events: none;"><path d="M441.83,182.58c7.74,4.4,13.95,10.83,17.3,19.24l31.63,97.33c2.28,10.57-.8,21.28-6.9,29.96l-110.13,129.17c-14.15,15.25-30.05,11.77-47.71,6.92-.5-.14-2.19-.49-2.41-.78l-27.96-85.87c-4.65-17.67,2.56-35.65,20.12-42.45,13.67-5.29,29.21-8.39,42.71-13.87,18.87-7.66,21.26-33.44,2.73-43.09-10.43-5.43-19.65-.55-29.88,2.71-18.45,5.87-36.97,11.73-55.38,18-15.52,5.29-23.4,15.86-19.88,32.61l40.48,124.5-.11,1.02-120.49-29.28c-10.45-3.48-19.21-10.38-23.54-20.76l-30.53-93.97c-3.38-12.79-.45-25.75,7.67-36.04,34.98-41.37,70.81-81.99,106.9-122.4,4.62-4.69,10.26-8.26,16.47-10.43,6.21-2.18,12.84-2.9,19.38-2.12,42.92,8.87,85.79,17.99,128.45,28.06,10.53,2.49,23.23,4.71,33.31,7.94,2.71.93,5.31,2.14,7.78,3.6ZM399.39,325.69c-5.57,11.07-16.1,21.72-27.79,26.34-12.4,4.89-26.3,7.87-38.84,12.6-3.42,1.69-5.52,4.97-4.73,8.82l17.58,54.11c1.68,3.92,6.41,5.29,9.44,1.98,29.33-34.61,58.98-68.95,88.22-103.63,7.19-8.52,16-15.77,12.9-28.41l-24.23-74.54c-2.51-6.11-8.48-11.49-14.81-13.31-10.25-2.94-22.28-4.79-32.84-7.17-30.39-6.87-60.75-14.08-91.21-20.61-14.93-3.2-26.95-7.81-39.37,4.91l-94.59,108.8c-2.87,4.44-4.16,9.73-3.64,14.99,8.1,26.61,16.65,53.3,25.9,79.52,2.22,3.55,5.48,6.33,9.34,7.94l51.94,12.91c2.34,0,3.55-2.06,3.23-4.2-6.7-23.26-16.23-46.37-22.64-69.63-3.76-13.64-2.73-28.83,5.77-40.47,7.3-9.99,17.22-21.09,28.98-25.62l83.09-26.98c46.2-8.9,79.03,40.44,58.31,81.64"></path></svg>
+      <p style="position: relative; font-size: 14px; font-weight: 700; color: #ffffff;">Iets aan de hand?</p>
+      <p style="font-size: 13px; line-height: 1.5; color: #B4C9C7; margin-top: 6px;">Binnen 24 uur bieden we een oplossing aan.</p>
+      <a onClick="{{ goOnderhoud }}" style="display: inline-flex; cursor: pointer; margin-top: 12px; background: #CEFF8A; color: #14141A; font-size: 13px; font-weight: 700; padding: 10px 16px; border-radius: 999px;" style-hover="background: #DDFFA4; color: #14141A;">Melding doen</a>
+    </div>
+
+    <div style="flex: none; display: flex; align-items: center; gap: 12px; padding: 0 6px;">
+      <img src="assets/img/1smvu8_koc.jpg" alt="Marleen Verhoeven" style="flex: none; width: 40px; height: 40px; border-radius: 999px; object-fit: cover; background: #B4C9C7;" />
+      <div style="min-width: 0;">
+        <p style="font-size: 14px; font-weight: 700; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Marleen Verhoeven</p>
+        <p style="font-size: 12px; color: #6E8A88;">Eigenaar · 7 panden</p>
+      </div>
+    </div>
+  </aside>
+
+  <main style="padding: 32px 36px 48px; min-width: 0;">
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div>
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Woensdag 30 juli</p>
+        <h1 style="font-size: 34px; line-height: 1.1; letter-spacing: -0.035em; font-weight: 900; color: #0E2D30; margin-top: 8px;">{{ pageTitle }}</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; border: 1px solid #E2E8DE; border-radius: 12px; padding: 12px 16px; width: 320px;">
+          <svg viewBox="0 0 20 20" aria-hidden="true" style="width: 17px; height: 17px; flex: none;"><circle cx="9" cy="9" r="5.5" fill="none" stroke="#63736F" stroke-width="1.8"></circle><path d="M13.2 13.2L17 17" stroke="#63736F" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <input type="text" placeholder="Zoek in panden, huurders of documenten" style="border: none; outline: none; background: transparent; font-size: 14px; color: #0E2D30; width: 100%;" />
+        </div>
+        <a onClick="{{ goOnderhoud }}" style="display: inline-flex; cursor: pointer; background: #0E2D30; color: #ffffff; font-size: 14px; font-weight: 700; padding: 13px 20px; border-radius: 999px;" style-hover="background: #16383B; color: #ffffff;">Nieuwe melding</a>
+      </div>
+    </header>
+
+    <sc-if value="{{ isOverzicht }}" hint-placeholder-val="{{ true }}">
+    <section id="overzicht" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px;">
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Panden in beheer</p>
+        <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px;">7</p>
+        <p style="font-size: 14px; color: #63736F; margin-top: 4px;">5 verhuurd · 2 te huur</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Bezettingsgraad</p>
+        <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px;">96%</p>
+        <p style="font-size: 14px; color: #4A6B2A; margin-top: 4px;">+4% t.o.v. vorig jaar</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Huur deze maand</p>
+        <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px; white-space: nowrap;">€ 11.230</p>
+        <p style="font-size: 14px; color: #63736F; margin-top: 4px;">Volledig ontvangen</p>
+      </div>
+      <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0E2D30; min-height: 148px;">
+        <img fetchpriority="high" decoding="async" src="assets/img/vrni83_log.jpg" alt="Ons serviceteam" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;" />
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,45,48,0.05) 30%, rgba(14,45,48,0.92) 100%);"></div>
+        <div style="position: relative; height: 100%; min-height: 148px; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px;">
+          <p style="font-size: 16px; font-weight: 700; color: #ffffff;">Persoonlijk contact?</p>
+          <p style="font-size: 14px; line-height: 1.45; color: #E2E8DE; margin-top: 4px;">Spreek met onze servicelijn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; margin-top: 20px; align-items: stretch;">
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;">
+          <div>
+            <p style="font-size: 15px; font-weight: 700; color: #63736F;">Huurinkomsten</p>
+            <p style="font-size: 34px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 6px; white-space: nowrap;">€ 67.380</p>
+            <p style="font-size: 14px; color: #63736F; margin-top: 4px;">Eerste halfjaar 2026 · na kosten</p>
+          </div>
+          <div style="display: flex; gap: 6px; background: #F3F6F1; border-radius: 999px; padding: 4px;">
+            <span style="padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #0E2D30; color: #ffffff;">Halfjaar</span>
+            <span style="padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; color: #63736F;">Jaar</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; align-items: end; height: 150px; margin-top: 22px;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 92px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Jan</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 74px; border-radius: 14px; background: #C3D6A8;"></div><p style="font-size: 13px; color: #63736F;">Feb</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 104px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Mrt</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 118px; border-radius: 14px; background: #CEFF8A;"></div><p style="font-size: 13px; color: #63736F;">Apr</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 100px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Mei</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 110px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Jun</p></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 28px; border-top: 1px solid #E2E8DE; margin-top: 24px; padding-top: 18px;">
+          <p style="font-size: 14px; color: #63736F;">Verwacht Q3 <span style="font-weight: 700; color: #0E2D30;">€ 34.100</span></p>
+          <p style="font-size: 14px; color: #63736F;">Achterstand <span style="font-weight: 700; color: #0E2D30;">€ 0</span></p>
+          <p style="font-size: 14px; color: #63736F;">Gem. huur <span style="font-weight: 700; color: #0E2D30;">€ 2.140</span></p>
+        </div>
+      </div>
+
+      <div id="assistent" style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="position: relative; overflow: hidden; background: #0E2D30; border-radius: 30px; padding: 26px;">
+          <svg viewBox="0 0 612 612" aria-hidden="true" style="position: absolute; right: -40px; bottom: -46px; width: 190px; height: 190px; fill: #ffffff; opacity: 0.06; pointer-events: none;"><path d="M441.83,182.58c7.74,4.4,13.95,10.83,17.3,19.24l31.63,97.33c2.28,10.57-.8,21.28-6.9,29.96l-110.13,129.17c-14.15,15.25-30.05,11.77-47.71,6.92-.5-.14-2.19-.49-2.41-.78l-27.96-85.87c-4.65-17.67,2.56-35.65,20.12-42.45,13.67-5.29,29.21-8.39,42.71-13.87,18.87-7.66,21.26-33.44,2.73-43.09-10.43-5.43-19.65-.55-29.88,2.71-18.45,5.87-36.97,11.73-55.38,18-15.52,5.29-23.4,15.86-19.88,32.61l40.48,124.5-.11,1.02-120.49-29.28c-10.45-3.48-19.21-10.38-23.54-20.76l-30.53-93.97c-3.38-12.79-.45-25.75,7.67-36.04,34.98-41.37,70.81-81.99,106.9-122.4,4.62-4.69,10.26-8.26,16.47-10.43,6.21-2.18,12.84-2.9,19.38-2.12,42.92,8.87,85.79,17.99,128.45,28.06,10.53,2.49,23.23,4.71,33.31,7.94,2.71.93,5.31,2.14,7.78,3.6ZM399.39,325.69c-5.57,11.07-16.1,21.72-27.79,26.34-12.4,4.89-26.3,7.87-38.84,12.6-3.42,1.69-5.52,4.97-4.73,8.82l17.58,54.11c1.68,3.92,6.41,5.29,9.44,1.98,29.33-34.61,58.98-68.95,88.22-103.63,7.19-8.52,16-15.77,12.9-28.41l-24.23-74.54c-2.51-6.11-8.48-11.49-14.81-13.31-10.25-2.94-22.28-4.79-32.84-7.17-30.39-6.87-60.75-14.08-91.21-20.61-14.93-3.2-26.95-7.81-39.37,4.91l-94.59,108.8c-2.87,4.44-4.16,9.73-3.64,14.99,8.1,26.61,16.65,53.3,25.9,79.52,2.22,3.55,5.48,6.33,9.34,7.94l51.94,12.91c2.34,0,3.55-2.06,3.23-4.2-6.7-23.26-16.23-46.37-22.64-69.63-3.76-13.64-2.73-28.83,5.77-40.47,7.3-9.99,17.22-21.09,28.98-25.62l83.09-26.98c46.2-8.9,79.03,40.44,58.31,81.64"></path></svg>
+          <div style="position: relative; display: flex; align-items: center; gap: 10px;">
+            <span style="display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; background: #CEFF8A; color: #14141A; font-size: 13px; font-weight: 700;">AI</span>
+            <p style="font-size: 15px; font-weight: 700; color: #ffffff;">Prop3rty-assistent</p>
+          </div>
+          <p style="font-size: 17px; line-height: 1.5; color: #B4C9C7; margin-top: 16px;">Vraag alles over je portefeuille. Ik zoek in je contracten, facturen en meldingen.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+            <span onClick="{{ askRendement }}" style="padding: 9px 14px; border-radius: 999px; border: 1px solid #2A5457; font-size: 13px; font-weight: 500; color: #ffffff; cursor: pointer;" style-hover="background: #16383B;">Wat is mijn rendement dit jaar?</span>
+            <span onClick="{{ askContract }}" style="padding: 9px 14px; border-radius: 999px; border: 1px solid #2A5457; font-size: 13px; font-weight: 500; color: #ffffff; cursor: pointer;" style-hover="background: #16383B;">Welk contract loopt af?</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; background: #16383B; border-radius: 12px; padding: 12px 14px; margin-top: 18px;">
+            <input type="text" value="{{ aiValue }}" onChange="{{ onAiChange }}" placeholder="Stel je vraag…" style="border: none; outline: none; background: transparent; font-size: 14px; color: #ffffff; width: 100%;" />
+            <span style="color: #CEFF8A; font-size: 16px; font-weight: 700;">→</span>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 26px; flex: 1; min-height: 0; display: flex; flex-direction: column;">
+          <p style="flex: none; font-size: 15px; font-weight: 700; color: #0E2D30;">Deze week</p>
+          <div style="flex: 1; min-height: 96px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; margin-top: 18px; padding-right: 4px;">
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <span style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: #E0533F; margin-top: 7px;"></span>
+              <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Inspectie Van Baerlestraat 41</p><p style="font-size: 14px; color: #63736F;">Donderdag 10:00 · met nieuwe huurder</p></div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <span style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: #F2C14E; margin-top: 7px;"></span>
+              <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Loodgieter Prinsengracht 88-2</p><p style="font-size: 14px; color: #63736F;">Vrijdag 13:30 · lekkage keukenkraan</p></div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <span style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: #7FA05E; margin-top: 7px;"></span>
+              <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Kwartaalrapportage klaar</p><p style="font-size: 14px; color: #63736F;">Staat voor je in Documenten</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 24px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <p style="font-size: 20px; font-weight: 900; letter-spacing: -0.02em; color: #0E2D30;">Mijn panden</p>
+        <a onClick="{{ goPanden }}" style="font-size: 14px; font-weight: 700; color: #0E2D30; cursor: pointer;">Alle 7 panden</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 18px;">
+        <sc-for list="{{ pandenTop }}" as="pand" hint-placeholder-count="4">
+          <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 14px; display: flex; flex-direction: column;">
+            <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; background: #E2E8DE; overflow: hidden;">
+              <img src="{{ pand.foto }}" alt="{{ pand.adres }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <span style="position: absolute; top: 10px; left: 10px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: {{ pand.statusBg }}; color: {{ pand.statusFg }};">{{ pand.status }}</span>
+            </div>
+            <div style="flex: 1; padding: 16px 6px 6px; display: flex; flex-direction: column; gap: 6px;">
+              <p style="font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: #0E2D30;">{{ pand.adres }}</p>
+              <p style="font-size: 14px; color: #63736F;">{{ pand.detail }}</p>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid #E2E8DE; margin-top: auto; padding-top: 12px;">
+                <p style="font-size: 19px; font-weight: 900; letter-spacing: -0.02em; color: #0E2D30;">{{ pand.huur }}</p>
+                <p style="font-size: 13px; color: #63736F;">per maand</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    </sc-if>
+
+    <sc-if value="{{ isPanden }}">
+    <section id="panden" style="margin-top: 24px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <p style="font-size: 15px; color: #63736F;">7 panden · 5 verhuurd · 2 te huur</p>
+        <div style="display: flex; gap: 6px; background: #ffffff; border: 1px solid #E2E8DE; border-radius: 999px; padding: 4px;">
+          <span onClick="{{ setFilterAlle }}" style="padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer; background: {{ bgAlle }}; color: {{ fgAlle }};">Alle</span>
+          <span onClick="{{ setFilterVerhuurd }}" style="padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer; background: {{ bgVerhuurd }}; color: {{ fgVerhuurd }};">Verhuurd</span>
+          <span onClick="{{ setFilterTeHuur }}" style="padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer; background: {{ bgTeHuur }}; color: {{ fgTeHuur }};">Te huur</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px;">
+        <sc-for list="{{ panden }}" as="pand" hint-placeholder-count="4">
+          <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 14px; display: flex; flex-direction: column;">
+            <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; background: #E2E8DE; overflow: hidden;">
+              <img src="{{ pand.foto }}" alt="{{ pand.adres }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <span style="position: absolute; top: 10px; left: 10px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: {{ pand.statusBg }}; color: {{ pand.statusFg }};">{{ pand.status }}</span>
+            </div>
+            <div style="flex: 1; padding: 16px 6px 6px; display: flex; flex-direction: column; gap: 6px;">
+              <p style="font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: #0E2D30;">{{ pand.adres }}</p>
+              <p style="font-size: 14px; color: #63736F;">{{ pand.detail }}</p>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid #E2E8DE; margin-top: auto; padding-top: 12px;">
+                <p style="font-size: 19px; font-weight: 900; letter-spacing: -0.02em; color: #0E2D30;">{{ pand.huur }}</p>
+                <p style="font-size: 13px; color: #63736F;">per maand</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+        <a href="#panden" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 240px; border: 1px dashed #C3D0C8; border-radius: 24px; background: #F3F6F1; text-decoration: none;" style-hover="background: #E2E8DE;">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: #ffffff; border: 1px solid #E2E8DE; font-size: 20px; font-weight: 700; color: #0E2D30;">+</span>
+          <p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Pand toevoegen</p>
+          <p style="font-size: 13px; color: #63736F;">Wij regelen de opname</p>
+        </a>
+      </div>
+    </section>
+
+    </sc-if>
+
+    <sc-if value="{{ isOnderhoud }}">
+    <section style="margin-top: 24px;">
+      <div id="onderhoud" style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <h2 style="font-size: 22px; letter-spacing: -0.03em; font-weight: 900; color: #0E2D30;">Onderhoudsverzoeken</h2>
+          <a href="#onderhoud" style="font-size: 14px; font-weight: 700; color: #0E2D30;">Alles bekijken</a>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 8px;">
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FADFDA; color: #E0533F;">Urgent</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">Verwarming valt uit</p>
+              <p style="font-size: 14px; color: #63736F;">Keizersgracht 214-3 · fam. De Vries · 2 uur open</p>
+            </div>
+            <p style="flex: none; font-size: 13px; font-weight: 700; color: #63736F;">Vakman gezocht</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FCEFCF; color: #8A6712;">In behandeling</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">Lekkage keukenkraan</p>
+              <p style="font-size: 14px; color: #63736F;">Prinsengracht 88-2 · J. Bakker · loodgieter vrijdag 13:30</p>
+            </div>
+            <p style="flex: none; font-size: 13px; font-weight: 700; color: #63736F;">Ingepland</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FCEFCF; color: #8A6712;">In behandeling</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">Kierende voordeur</p>
+              <p style="font-size: 14px; color: #63736F;">Bilderdijkkade 12-1 · S. El Amrani · offerte aangevraagd</p>
+            </div>
+            <p style="flex: none; font-size: 13px; font-weight: 700; color: #63736F;">Wacht op prijs</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0;">
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #CEFF8A; color: #14141A;">Opgelost</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">Sleutel kwijt, cilinder vervangen</p>
+              <p style="font-size: 14px; color: #63736F;">Weteringschans 63-1 · binnen 6 uur opgelost</p>
+            </div>
+            <p style="flex: none; font-size: 13px; font-weight: 700; color: #4A6B2A;">Gisteren</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ isDocumenten }}">
+    <section style="margin-top: 24px;">
+      <div id="documenten" style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <h2 style="font-size: 22px; letter-spacing: -0.03em; font-weight: 900; color: #0E2D30;">Documenten</h2>
+          <a href="#documenten" style="font-size: 14px; font-weight: 700; color: #0E2D30;">Alles</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 18px;">
+          <a href="#documenten" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Kwartaalrapportage Q2 2026</p><p style="font-size: 13px; color: #63736F;">Vandaag toegevoegd</p></div>
+          </a>
+          <a href="#documenten" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Huurovereenkomst Keizersgracht 214-3</p><p style="font-size: 13px; color: #63736F;">Loopt tot 1 maart 2027</p></div>
+          </a>
+          <a href="#documenten" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Inspectierapport Van Baerlestraat 41</p><p style="font-size: 13px; color: #63736F;">Opgesteld 24 juli 2026</p></div>
+          </a>
+          <a href="#documenten" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">XLS</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Jaarafrekening servicekosten 2025</p><p style="font-size: 13px; color: #63736F;">Alle panden</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ isHuurders }}">
+    <section style="margin-top: 24px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+          <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Actieve huurders</p>
+          <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px;">5</p>
+          <p style="font-size: 14px; color: #63736F; margin-top: 4px;">Gem. woonduur 3,4 jaar</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+          <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Huur ontvangen</p>
+          <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px;">100%</p>
+          <p style="font-size: 14px; color: #4A6B2A; margin-top: 4px;">Geen achterstand</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 24px; padding: 22px;">
+          <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #63736F;">Contract verloopt</p>
+          <p style="font-size: 40px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 12px;">2</p>
+          <p style="font-size: 14px; color: #63736F; margin-top: 4px;">Binnen 6 maanden</p>
+        </div>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <h2 style="font-size: 22px; letter-spacing: -0.03em; font-weight: 900; color: #0E2D30;">Alle huurders</h2>
+          <p style="font-size: 14px; font-weight: 700; color: #63736F;">Betaalstatus juli</p>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 8px;">
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #F3F6F1; color: #0E2D30; font-size: 14px; font-weight: 700;">V</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">Fam. De Vries</p>
+              <p style="font-size: 14px; color: #63736F;">Keizersgracht 214-3 · Contract tot 1 mrt 2027</p>
+            </div>
+            <p style="flex: none; font-size: 16px; font-weight: 700; color: #0E2D30;">€ 2.350</p>
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #CEFF8A; color: #14141A;">Op tijd</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #F3F6F1; color: #0E2D30; font-size: 14px; font-weight: 700;">B</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">J. Bakker</p>
+              <p style="font-size: 14px; color: #63736F;">Prinsengracht 88-2 · Contract tot 1 okt 2026</p>
+            </div>
+            <p style="flex: none; font-size: 16px; font-weight: 700; color: #0E2D30;">€ 1.980</p>
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #CEFF8A; color: #14141A;">Op tijd</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #F3F6F1; color: #0E2D30; font-size: 14px; font-weight: 700;">A</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">S. El Amrani</p>
+              <p style="font-size: 14px; color: #63736F;">Bilderdijkkade 12-1 · Contract tot 1 jan 2028</p>
+            </div>
+            <p style="flex: none; font-size: 16px; font-weight: 700; color: #0E2D30;">€ 1.620</p>
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #CEFF8A; color: #14141A;">Op tijd</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #F3F6F1; color: #0E2D30; font-size: 14px; font-weight: 700;">W</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">T. Willems</p>
+              <p style="font-size: 14px; color: #63736F;">Houthavenkade 22-4 · Contract tot 1 jun 2027</p>
+            </div>
+            <p style="flex: none; font-size: 16px; font-weight: 700; color: #0E2D30;">€ 2.240</p>
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FCEFCF; color: #8A6712;">Herinnering</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #F3F6F1; color: #0E2D30; font-size: 14px; font-weight: 700;">P</span>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-size: 16px; font-weight: 700; color: #0E2D30;">L. Postma</p>
+              <p style="font-size: 14px; color: #63736F;">Amstelkwartier 9-2 · Contract tot 1 sep 2026</p>
+            </div>
+            <p style="flex: none; font-size: 16px; font-weight: 700; color: #0E2D30;">€ 1.870</p>
+            <span style="flex: none; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FADFDA; color: #E0533F;">Opzegging</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ isRapportages }}">
+    <section style="margin-top: 24px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start;">
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <p style="font-size: 15px; font-weight: 700; color: #63736F;">Netto rendement per kwartaal</p>
+        <p style="font-size: 34px; font-weight: 900; letter-spacing: -0.035em; color: #0E2D30; margin-top: 6px;">5,8%</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: end; height: 150px; margin-top: 22px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 72px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Q3 ’25</p></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 88px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Q4 ’25</p></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 104px; border-radius: 14px; background: #0E2D30;"></div><p style="font-size: 13px; color: #63736F;">Q1 ’26</p></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"><div style="width: 100%; height: 126px; border-radius: 14px; background: #CEFF8A;"></div><p style="font-size: 13px; color: #63736F;">Q2 ’26</p></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 28px; border-top: 1px solid #E2E8DE; margin-top: 24px; padding-top: 18px;">
+          <p style="font-size: 14px; color: #63736F;">Leegstand <span style="font-weight: 700; color: #0E2D30;">4%</span></p>
+          <p style="font-size: 14px; color: #63736F;">Onderhoud <span style="font-weight: 700; color: #0E2D30;">€ 4.180</span></p>
+          <p style="font-size: 14px; color: #63736F;">Waardegroei <span style="font-weight: 700; color: #0E2D30;">+3,1%</span></p>
+        </div>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <h2 style="font-size: 22px; letter-spacing: -0.03em; font-weight: 900; color: #0E2D30;">Rapporten</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 18px;">
+          <a onClick="{{ noop }}" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px; cursor: pointer;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Kwartaalrapportage Q2 2026</p><p style="font-size: 13px; color: #63736F;">PDF · 12 pagina’s · 30 juli 2026</p></div>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #0E2D30;">Download</span>
+          </a>
+          <a onClick="{{ noop }}" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px; cursor: pointer;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Rendementsanalyse eerste halfjaar</p><p style="font-size: 13px; color: #63736F;">PDF · 6 pagina’s · 12 juli 2026</p></div>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #0E2D30;">Download</span>
+          </a>
+          <a onClick="{{ noop }}" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px; cursor: pointer;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">XLS</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Onderhoudskosten per pand</p><p style="font-size: 13px; color: #63736F;">XLS · alle panden · 1 juli 2026</p></div>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #0E2D30;">Download</span>
+          </a>
+          <a onClick="{{ noop }}" style="display: flex; align-items: center; gap: 14px; background: #F3F6F1; border-radius: 16px; padding: 14px 16px; cursor: pointer;" style-hover="background: #E2E8DE;">
+            <span style="flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ffffff; font-size: 11px; font-weight: 700; color: #0E2D30;">PDF</span>
+            <div><p style="font-size: 15px; font-weight: 700; color: #0E2D30;">Marktvergelijking Amsterdam</p><p style="font-size: 13px; color: #63736F;">PDF · 9 pagina’s · 20 juni 2026</p></div>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #0E2D30;">Download</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ isAssistent }}">
+    <section style="margin-top: 24px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start;">
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; background: #CEFF8A; color: #14141A; font-size: 13px; font-weight: 700;">AI</span>
+          <div style="background: #F3F6F1; border-radius: 18px; padding: 14px 18px; max-width: 78%;">
+            <p style="font-size: 15px; line-height: 1.5; color: #0E2D30;">Goedemorgen Marleen. Je portefeuille staat er goed voor: alle huur is ontvangen en er is één urgente melding op Keizersgracht 214-3.</p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end;">
+          <div style="background: #0E2D30; border-radius: 18px; padding: 14px 18px; max-width: 78%;">
+            <p style="font-size: 15px; line-height: 1.5; color: #ffffff;">Welk huurcontract loopt het eerst af?</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; background: #CEFF8A; color: #14141A; font-size: 13px; font-weight: 700;">AI</span>
+          <div style="background: #F3F6F1; border-radius: 18px; padding: 14px 18px; max-width: 78%;">
+            <p style="font-size: 15px; line-height: 1.5; color: #0E2D30;">Amstelkwartier 9-2 (L. Postma) loopt af op 1 september 2026. De huurder heeft opgezegd. Wil je dat ik de woning alvast in de verhuurmarkt zet?</p>
+            <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+              <span onClick="{{ noop }}" style="padding: 8px 14px; border-radius: 999px; background: #0E2D30; color: #ffffff; font-size: 13px; font-weight: 700; cursor: pointer;">Ja, publiceer</span>
+              <span onClick="{{ noop }}" style="padding: 8px 14px; border-radius: 999px; border: 1px solid #E2E8DE; color: #0E2D30; font-size: 13px; font-weight: 700; cursor: pointer;">Later</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; background: #F3F6F1; border-radius: 14px; padding: 14px 16px; margin-top: 8px;">
+          <input type="text" value="{{ aiValue }}" onChange="{{ onAiChange }}" placeholder="Stel je vraag…" style="border: none; outline: none; background: transparent; font-size: 15px; color: #0E2D30; width: 100%;" />
+          <span style="color: #0E2D30; font-size: 16px; font-weight: 700;">→</span>
+        </div>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #E2E8DE; border-radius: 30px; padding: 28px;">
+        <h2 style="font-size: 22px; letter-spacing: -0.03em; font-weight: 900; color: #0E2D30;">Waar ik bij help</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 18px;">
+          <p style="font-size: 15px; line-height: 1.5; color: #63736F;">Contracten en documenten doorzoeken</p>
+          <p style="font-size: 15px; line-height: 1.5; color: #63736F;">Meldingen inschatten en vakmensen inplannen</p>
+          <p style="font-size: 15px; line-height: 1.5; color: #63736F;">Rendement, huurprijzen en leegstand uitleggen</p>
+          <p style="font-size: 15px; line-height: 1.5; color: #63736F;">Berichten aan huurders opstellen</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;">
+          <span onClick="{{ askRendement }}" style="padding: 9px 14px; border-radius: 999px; border: 1px solid #E2E8DE; font-size: 13px; font-weight: 500; color: #0E2D30; cursor: pointer;" style-hover="background: #F3F6F1;">Wat is mijn rendement dit jaar?</span>
+          <span onClick="{{ askContract }}" style="padding: 9px 14px; border-radius: 999px; border: 1px solid #E2E8DE; font-size: 13px; font-weight: 500; color: #0E2D30; cursor: pointer;" style-hover="background: #F3F6F1;">Welk contract loopt af?</span>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <p style="font-size: 13px; color: #63736F; margin-top: 32px;">Dummy-omgeving · alle gegevens zijn voorbeelden</p>
+  </main>
+</div>
+
+  <div data-whatsapp-modal-status="not-active" data-whatsapp-modal="https://wa.me/31614445833" class="whatsapp-modal">
+    <div data-whatsapp-modal-toggle="" class="whatsapp-modal__dark"></div>
+    <div class="whatsapp-modal__card">
+      <div data-whatsapp-modal-qr-canvas="" class="whatsapp-modal__qr-canvas"></div>
+      <div class="whatsapp-modal__text">
+        <h2 class="whatsapp-modal__h2">WhatsApp ons</h2>
+        <p class="whatsapp-modal__p">Scan de QR-code om via je telefoon te chatten met ons team. Of bel 06 14 44 58 33.</p>
+      </div>
+      <a data-whatsapp-modal-link="" href="https://wa.me/31614445833" target="_blank" rel="noopener" class="whatsapp-modal__btn">
+        <span class="whatsapp-modal__btn-span">Of chat via desktop</span>
+      </a>
+      <div data-whatsapp-modal-toggle="" class="whatsapp-modal__close">
+        <div class="whatsapp-modal__close-bar"></div>
+        <div class="whatsapp-modal__close-bar is--duplicate"></div>
+      </div>
+    </div>
+  </div>
+  <div data-whatsapp-modal-trigger="" role="button" aria-label="WhatsApp ons" class="whatsapp-modal__fab">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="whatsapp-modal__icon-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.049 4.90701C17.3493 3.20721 15.0898 2.18312 12.6912 2.02547C10.2926 1.86782 7.91847 2.58735 6.01096 4.05007C4.10345 5.51278 2.7926 7.61896 2.32257 9.97633C1.85254 12.3337 2.25535 14.7816 3.456 16.864L2.049 22L7.3 20.621C8.75245 21.4124 10.3799 21.8277 12.034 21.829C13.9949 21.8301 15.912 21.2495 17.5429 20.1607C19.1737 19.072 20.445 17.5239 21.1958 15.7125C21.9467 13.9011 22.1434 11.9077 21.7611 9.98441C21.3788 8.06116 20.4346 6.29453 19.048 4.90801L19.049 4.90701ZM12.041 20.157C10.5648 20.1573 9.11572 19.76 7.846 19.007L7.546 18.827L4.428 19.644L5.261 16.605L5.066 16.293C4.38658 15.2118 3.96778 13.9875 3.84265 12.7167C3.71752 11.4459 3.88948 10.1634 4.34497 8.97049C4.80045 7.77755 5.52699 6.70681 6.46722 5.84279C7.40746 4.97877 8.53566 4.34513 9.76277 3.99188C10.9899 3.63863 12.2823 3.57544 13.538 3.8073C14.7937 4.03916 15.9783 4.55973 16.9984 5.3279C18.0184 6.09608 18.8459 7.09084 19.4156 8.23366C19.9853 9.37647 20.2816 10.6361 20.281 11.913C20.2778 14.0977 19.4088 16.192 17.8642 17.7371C16.3197 19.2822 14.2257 20.153 12.041 20.157ZM16.557 13.985C16.311 13.86 15.092 13.263 14.865 13.185C14.638 13.107 14.474 13.06 14.306 13.31C14.138 13.56 13.666 14.11 13.521 14.283C13.376 14.456 13.233 14.47 12.986 14.345C12.2559 14.0533 11.5819 13.6371 10.994 13.115C10.4534 12.6137 9.98909 12.0359 9.616 11.4C9.471 11.154 9.6 11.018 9.726 10.9C9.852 10.782 9.972 10.611 10.097 10.466C10.1992 10.3409 10.2824 10.2014 10.344 10.052C10.3769 9.98367 10.3922 9.90823 10.3887 9.83248C10.3852 9.75674 10.363 9.68304 10.324 9.61801C10.261 9.49301 9.765 8.27401 9.562 7.77801C9.359 7.28201 9.156 7.35201 9 7.34401C8.844 7.33601 8.69 7.33601 8.527 7.33601C8.40171 7.33967 8.2785 7.36898 8.16498 7.42213C8.05147 7.47527 7.95005 7.55113 7.867 7.64501C7.58693 7.9105 7.36521 8.23139 7.21594 8.58725C7.06667 8.94312 6.99313 9.32616 7 9.71201C7.08057 10.6462 7.43193 11.5365 8.011 12.274C9.07331 13.8657 10.5309 15.1541 12.241 16.013C12.831 16.267 13.292 16.419 13.651 16.537C14.156 16.6901 14.6896 16.7244 15.21 16.637C15.5548 16.567 15.8813 16.4264 16.1691 16.224C16.4569 16.0216 16.6996 15.7618 16.882 15.461C17.0444 15.0917 17.0948 14.6827 17.027 14.285C16.969 14.174 16.805 14.114 16.555 13.985H16.557Z" fill="currentColor"></path></svg>
+    <a data-whatsapp-modal-link="" href="https://wa.me/31614445833" target="_blank" rel="noopener" class="whatsapp-modal__overlay-link"></a>
+    <div data-whatsapp-modal-toggle="" class="whatsapp-modal__overlay-toggle"></div>
+  </div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { filter: 'Alle', ai: '', page: 'overzicht' };
+
+  titles = {
+    overzicht: 'Goedemorgen, Marleen',
+    panden: 'Mijn panden',
+    huurders: 'Huurders',
+    onderhoud: 'Onderhoud',
+    documenten: 'Documenten',
+    rapportages: 'Rapportages',
+    assistent: 'Prop3rty-assistent'
+  };
+
+  go(page) {
+    return () => { this.setState({ page }); window.scrollTo(0, 0); };
+  }
+
+  navVals() {
+    const out = {};
+    Object.keys(this.titles).forEach(k => {
+      const on = this.state.page === k;
+      const K = k[0].toUpperCase() + k.slice(1);
+      out['nav' + K + 'Bg'] = on ? '#CEFF8A' : 'transparent';
+      out['nav' + K + 'Fg'] = on ? '#14141A' : '#B4C9C7';
+      out['nav' + K + 'Weight'] = on ? 700 : 500;
+      out['is' + K] = on;
+      out['go' + K] = this.go(k);
+    });
+    return out;
+  }
+
+  all = [
+    { adres: 'Keizersgracht 214-3', detail: '92 m² · 3 kamers · fam. De Vries', huur: '€ 2.350', status: 'Verhuurd', foto: 'assets/img/1jqv933_czc.jpg' },
+    { adres: 'Prinsengracht 88-2', detail: '74 m² · 2 kamers · J. Bakker', huur: '€ 1.980', status: 'Verhuurd', foto: 'assets/img/1gn3m0o_zbs.jpg' },
+    { adres: 'Van Baerlestraat 41', detail: '118 m² · 4 kamers · leeg per 1 sep', huur: '€ 2.750', status: 'Te huur', foto: 'assets/img/uym27a_mw8.jpg' },
+    { adres: 'Bilderdijkkade 12-1', detail: '65 m² · 2 kamers · S. El Amrani', huur: '€ 1.620', status: 'Verhuurd', foto: 'assets/img/e7k0dw_b44.jpg' },
+    { adres: 'Houthavenkade 22-4', detail: '86 m² · 3 kamers · T. Willems', huur: '€ 2.240', status: 'Verhuurd', foto: 'assets/img/nl64x_8fs.jpg' },
+    { adres: 'Gustav Mahlerlaan 118', detail: '104 m² · 3 kamers · oplevering 1 okt', huur: '€ 2.890', status: 'Te huur', foto: 'assets/img/126wxa2_8rw.jpg' },
+    { adres: 'Amstelkwartier 9-2', detail: '71 m² · 2 kamers · L. Postma', huur: '€ 1.870', status: 'Verhuurd', foto: 'assets/img/14m0gtp_qjk.jpg' }
+  ];
+
+  pill(name) {
+    const on = this.state.filter === name;
+    return { bg: on ? '#0E2D30' : 'transparent', fg: on ? '#ffffff' : '#63736F' };
+  }
+
+  renderVals() {
+    const f = this.state.filter;
+    const panden = this.all
+      .filter(p => f === 'Alle' || p.status === f)
+      .map(p => Object.assign({}, p, {
+        statusBg: p.status === 'Te huur' ? '#CEFF8A' : '#ffffff',
+        statusFg: p.status === 'Te huur' ? '#14141A' : '#0E2D30'
+      }));
+    const a = this.pill('Alle'), v = this.pill('Verhuurd'), t = this.pill('Te huur');
+    return Object.assign(this.navVals(), {
+      pageTitle: this.titles[this.state.page],
+      noop: () => {},
+      panden,
+      pandenTop: panden.slice(0, 4),
+      setFilterAlle: () => this.setState({ filter: 'Alle' }),
+      setFilterVerhuurd: () => this.setState({ filter: 'Verhuurd' }),
+      setFilterTeHuur: () => this.setState({ filter: 'Te huur' }),
+      bgAlle: a.bg, fgAlle: a.fg,
+      bgVerhuurd: v.bg, fgVerhuurd: v.fg,
+      bgTeHuur: t.bg, fgTeHuur: t.fg,
+      aiValue: this.state.ai,
+      onAiChange: (e) => this.setState({ ai: e.target.value }),
+      askRendement: () => this.setState({ ai: 'Wat is mijn rendement dit jaar?' }),
+      askContract: () => this.setState({ ai: 'Welk huurcontract loopt het eerst af?' })
+    });
+  }
+}
+</script>
+</body>
+</html>

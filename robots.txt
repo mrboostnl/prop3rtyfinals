@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /landing-alt
+
+Sitemap: https://prop3rty.nl/sitemap.xml
